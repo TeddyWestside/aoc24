@@ -1,18 +1,22 @@
 import day1.DistanceCalculator;
 import org.junit.jupiter.api.Test;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class Day1Test {
 
+
     @Test
-    public void testDistanceCalculator() {
+    public void testDistanceCalculatorWithImportedTestLists() {
         DistanceCalculator distanceCalculator = new DistanceCalculator();
-        distanceCalculator.setFirstList(new ArrayList<>(Arrays.asList(1, 1)));
-        distanceCalculator.setSecondList(new ArrayList<>(Arrays.asList(7, 7)));
-        assertEquals(12, distanceCalculator.measureDistance());
+        distanceCalculator.importLists("src/test/resources/test.txt");
+        assertEquals(11, distanceCalculator.measureDistance());
+    }
+
+    @Test
+    public void testDistanceCalculatorWithImportedPuzzleLists() {
+        DistanceCalculator distanceCalculator = new DistanceCalculator();
+        distanceCalculator.importLists("src/main/resources/list.txt");
+        assertEquals(1197984, distanceCalculator.measureDistance());
     }
 }
