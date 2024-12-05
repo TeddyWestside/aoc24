@@ -12,8 +12,8 @@ public class Day1Test {
     @Test
     public void testDistanceCalculator() {
         DistanceCalculator distanceCalculator = new DistanceCalculator();
-        List<Integer> firstList = new ArrayList<>(Arrays.asList(1));
-        List<Integer> secondList = new ArrayList(Arrays.asList(7));
-        assertEquals(6, distanceCalculator.measureDistance(firstList, secondList));
+        List<Integer> firstList = new ArrayList<>(Arrays.asList(1, 1));
+        List<Integer> secondList = new ArrayList<>(Arrays.asList(7, 7));
+        assertEquals(12, distanceCalculator.measureDistance(firstList, secondList));
     }
 }
