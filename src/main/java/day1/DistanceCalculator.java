@@ -14,7 +14,7 @@ public class DistanceCalculator {
     private ArrayList<Integer> firstList = new ArrayList<>();
     private ArrayList<Integer> secondList = new ArrayList<>();
 
-    public int measureDistance() {
+    public int measureTotalDistance() {
         sortLists();
         int totalDistance = 0;
         for (int i = 0; i < firstList.size(); i++) {

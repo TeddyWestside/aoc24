@@ -10,13 +10,13 @@ public class Day1Test {
     public void testDistanceCalculatorWithImportedTestLists() {
         DistanceCalculator distanceCalculator = new DistanceCalculator();
         distanceCalculator.importLists("src/test/resources/test.txt");
-        assertEquals(11, distanceCalculator.measureDistance());
+        assertEquals(11, distanceCalculator.measureTotalDistance());
     }
 
     @Test
     public void testDistanceCalculatorWithImportedPuzzleLists() {
         DistanceCalculator distanceCalculator = new DistanceCalculator();
         distanceCalculator.importLists("src/main/resources/list.txt");
-        assertEquals(1197984, distanceCalculator.measureDistance());
+        assertEquals(1197984, distanceCalculator.measureTotalDistance());
     }
 }
