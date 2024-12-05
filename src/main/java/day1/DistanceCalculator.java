@@ -1,13 +1,20 @@
 package day1;
 
-import java.util.List;
+import lombok.Data;
 
+import java.util.ArrayList;
+
+@Data
 public class DistanceCalculator {
 
-    public int measureDistance(List<Integer> firstList, List<Integer> secondList) {
+    private ArrayList<Integer> firstList;
+    private ArrayList<Integer> secondList;
+
+    public int measureDistance() {
         int totalDistance = 0;
         for (int i = 0; i < firstList.size(); i++) {
             totalDistance += Math.abs(firstList.get(i) - secondList.get(i));
         }
-        return totalDistance;    }
+        return totalDistance;
+    }
 }
