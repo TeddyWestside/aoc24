@@ -17,7 +17,7 @@ public class Day1Test {
     @Test
     public void shouldMeasureDistanceWithPuzzleData() {
         ListComparator listComparator = new ListComparator();
-        listComparator.importLists("src/main/resources/list.txt");
+        listComparator.importLists("src/main/resources/day1/list.txt");
         assertEquals(1197984, listComparator.measureTotalDistance());
     }
 
@@ -32,7 +32,7 @@ public class Day1Test {
     @Test
     public void shouldMeasureSimilarityScoreWithPuzzleData() {
         ListComparator listComparator = new ListComparator();
-        listComparator.importLists("src/main/resources/list.txt");
+        listComparator.importLists("src/main/resources/day1/list.txt");
         assertEquals(23387399, listComparator.measureSimilarityScore());
     }
 }
