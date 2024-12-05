@@ -9,7 +9,7 @@ import java.util.Collections;
 import java.util.Scanner;
 
 @Data
-public class DistanceCalculator {
+public class ListComparator {
 
     private ArrayList<Integer> firstList = new ArrayList<>();
     private ArrayList<Integer> secondList = new ArrayList<>();
