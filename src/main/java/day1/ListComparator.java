@@ -1,12 +1,12 @@
 package day1;
 
+import utils.SharedFunctions;
 import lombok.Data;
 
-import java.io.File;
-import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Scanner;
+
 
 @Data
 public class ListComparator {
@@ -38,7 +38,8 @@ public class ListComparator {
     }
 
     public void importLists(String path) {
-        Scanner myReader = getScanner(path);
+
+        Scanner myReader = SharedFunctions.getScanner(path);
         while (myReader.hasNextLine()) {
             String line = myReader.nextLine();
             String[] numbers = line.trim().split("\\s+");
@@ -48,15 +49,5 @@ public class ListComparator {
         myReader.close();
     }
 
-    private Scanner getScanner(String path) {
-        File myObj = new File(path);
-        try {
-            return new Scanner(myObj);
-        } catch (FileNotFoundException e) {
-            System.out.println("An error occurred.");
-            e.printStackTrace();
-        }
-        return null;
-    }
 }
 
