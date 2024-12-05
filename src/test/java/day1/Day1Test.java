@@ -1,4 +1,5 @@
-import day1.ListComparator;
+package day1;
+
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -9,7 +10,7 @@ public class Day1Test {
     @Test
     public void shouldMeasureDistanceWithTestData() {
         ListComparator listComparator = new ListComparator();
-        listComparator.importLists("src/test/resources/test.txt");
+        listComparator.importLists("src/test/resources/day1/test.txt");
         assertEquals(11, listComparator.measureTotalDistance());
     }
 
@@ -24,7 +25,7 @@ public class Day1Test {
     @Test
     public void shouldMeasureSimilarityScoreWithTestData() {
         ListComparator listComparator = new ListComparator();
-        listComparator.importLists("src/test/resources/test.txt");
+        listComparator.importLists("src/test/resources/day1/test.txt");
         assertEquals(31, listComparator.measureSimilarityScore());
     }
 
