@@ -23,6 +23,15 @@ public class ListComparator {
         return totalDistance;
     }
 
+    public int measureSimilarityScore() {
+        // go through the lists and multiply the first value of the first list with the amount of its occurrences in the second list
+        int similarityScore = 0;
+        for (Integer integer : firstList) {
+            similarityScore += integer * Collections.frequency(secondList, integer);
+        }
+        return similarityScore;
+    }
+
     private void sortLists() {
         Collections.sort(firstList);
         Collections.sort(secondList);
