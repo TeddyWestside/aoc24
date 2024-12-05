@@ -26,8 +26,8 @@ public class ListComparator {
     public int measureSimilarityScore() {
         // go through the lists and multiply the first value of the first list with the amount of its occurrences in the second list
         int similarityScore = 0;
-        for (Integer integer : firstList) {
-            similarityScore += integer * Collections.frequency(secondList, integer);
+        for (int number : firstList) {
+            similarityScore += number * Collections.frequency(secondList, number);
         }
         return similarityScore;
     }
