@@ -1,5 +1,4 @@
-package day1;
-
+import day1.ListComparator;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
