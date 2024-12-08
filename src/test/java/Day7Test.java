@@ -6,6 +6,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class Day7Test {
 
+    // Part 1
     @Test
     public void shouldSolveEquationWith190() {
         EquationsSolver equationsSolver = new EquationsSolver();
@@ -42,5 +43,20 @@ public class Day7Test {
         EquationsSolver equationsSolver = new EquationsSolver();
         var sum = equationsSolver.resolveAllForFile("src/main/resources/day7/list.txt");
         assertEquals(303876485655L, sum);
+    }
+
+    // Part 2
+    @Test
+    public void shouldSolveAllEquationsInTestFileWithConcatenationActivated() {
+        EquationsSolver equationsSolver = new EquationsSolver(true);
+        var sum = equationsSolver.resolveAllForFile("src/test/resources/day7/test.txt");
+        assertEquals(11387L, sum);
+    }
+
+    @Test
+    public void shouldSolveAllEquationsInPuzzleFileWithConcatenationActivated() {
+        EquationsSolver equationsSolver = new EquationsSolver(true);
+        var sum = equationsSolver.resolveAllForFile("src/main/resources/day7/list.txt");
+        assertEquals(11387L, sum);
     }
 }
