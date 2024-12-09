@@ -29,7 +29,7 @@ public class Day9Test {
         Defragmenter defragmenter = new Defragmenter();
         defragmenter.generateBlockView("12345");
         defragmenter.defrag();
-        assertEquals("022111222......", defragmenter.getDefragmentedDiskMap());
+        assertEquals("[0, 2, 2, 1, 1, 1, 2, 2, 2, ., ., ., ., ., .]", defragmenter.getDefragmentedDiskMap().toString());
     }
 
     @Test
@@ -38,6 +38,6 @@ public class Day9Test {
         defragmenter.generateBlockView("12345");
         defragmenter.defrag();
         defragmenter.generateChecksum();
-        assertEquals("022111222......", defragmenter.getDefragmentedDiskMap());
+        assertEquals("[0, 2, 2, 1, 1, 1, 2, 2, 2, ., ., ., ., ., .]", defragmenter.getDefragmentedDiskMap().toString());
     }
 }

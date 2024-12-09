@@ -7,7 +7,7 @@ import java.util.ArrayList;
 public class Defragmenter {
 
     private ArrayList<String> blockView = new ArrayList<>();
-    private String defragmentedDiskMap = "";
+    private ArrayList<String> defragmentedDiskMap = new ArrayList<>();
     private String checkSum = "";
 
     public void generateBlockView(String diskMap) {
@@ -23,25 +23,23 @@ public class Defragmenter {
     }
 
     public void defrag() {
-        ArrayList<String> defragmentedBlockView = new ArrayList<>(blockView);
+        defragmentedDiskMap = new ArrayList<>(blockView);
         int dotIndex = 0;
 
-        for (int i = defragmentedBlockView.size() - 1; i >= 0; i--) {
-            if (!defragmentedBlockView.get(i).equals(".")) {
+        for (int i = defragmentedDiskMap.size() - 1; i >= 0; i--) {
+            if (!defragmentedDiskMap.get(i).equals(".")) {
                 // Find the foremost dot to swap with
-                while (dotIndex < defragmentedBlockView.size() && !defragmentedBlockView.get(dotIndex).equals(".")) {
+                while (dotIndex < defragmentedDiskMap.size() && !defragmentedDiskMap.get(dotIndex).equals(".")) {
                     dotIndex++;
                 }
-                if (dotIndex < defragmentedBlockView.size() && i > dotIndex) {
+                if (dotIndex < defragmentedDiskMap.size() && i > dotIndex) {
                     // Swap the characters
-                    defragmentedBlockView.set(dotIndex, defragmentedBlockView.get(i));
-                    defragmentedBlockView.set(i, ".");
+                    defragmentedDiskMap.set(dotIndex, defragmentedDiskMap.get(i));
+                    defragmentedDiskMap.set(i, ".");
                     dotIndex++;
                 }
             }
         }
-
-        this.defragmentedDiskMap = String.join("", defragmentedBlockView);
     }
 
     public void generateChecksum() {
@@ -57,5 +55,4 @@ public class Defragmenter {
     private static boolean isEven(int charPosition) {
         return charPosition % 2 == 0;
     }
-
 }
