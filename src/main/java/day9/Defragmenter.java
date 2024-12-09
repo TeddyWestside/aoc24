@@ -27,15 +27,12 @@ public class Defragmenter {
         int dotIndex = 0;
 
         for (int i = defragmentedDiskMap.size() - 1; i >= 0; i--) {
-            if (!defragmentedDiskMap.get(i).equals(".")) {
-                // Find the foremost dot to swap with
-                while (dotIndex < defragmentedDiskMap.size() && !defragmentedDiskMap.get(dotIndex).equals(".")) {
+            if (isNoDot(i)) {
+                while (isNoDotAndSmallerThanDiskMapSize(dotIndex)) {
                     dotIndex++;
                 }
-                if (dotIndex < defragmentedDiskMap.size() && i > dotIndex) {
-                    // Swap the characters
-                    defragmentedDiskMap.set(dotIndex, defragmentedDiskMap.get(i));
-                    defragmentedDiskMap.set(i, ".");
+                if (isNotFinishedAndInDiskMapSize(dotIndex, i)) {
+                    swapPositions(dotIndex, i);
                     dotIndex++;
                 }
             }
@@ -46,10 +43,33 @@ public class Defragmenter {
         this.checkSum = "";
     }
 
+    private void swapPositions(int dotIndex, int i) {
+        defragmentedDiskMap.set(dotIndex, defragmentedDiskMap.get(i));
+        defragmentedDiskMap.set(i, ".");
+    }
+
+
+
+    private boolean isNotFinishedAndInDiskMapSize(int dotIndex, int i) {
+        return isInDiskMapSize(dotIndex) && i > dotIndex;
+    }
+
     private void appendTimes(String charPosition, int value) {
         for (int i = 0; i < value; i++) {
             blockView.add(charPosition);
         }
+    }
+
+    private boolean isNoDotAndSmallerThanDiskMapSize(int dotIndex) {
+        return isInDiskMapSize(dotIndex) && isNoDot(dotIndex);
+    }
+
+    private boolean isNoDot(int dotIndex) {
+        return !defragmentedDiskMap.get(dotIndex).equals(".");
+    }
+
+    private boolean isInDiskMapSize(int dotIndex) {
+        return dotIndex < defragmentedDiskMap.size();
     }
 
     private static boolean isEven(int charPosition) {
