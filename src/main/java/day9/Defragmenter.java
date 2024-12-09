@@ -8,7 +8,7 @@ public class Defragmenter {
 
     private ArrayList<String> blockView = new ArrayList<>();
     private ArrayList<String> defragmentedDiskMap = new ArrayList<>();
-    private String checkSum = "";
+    private long checkSum;
 
     public void generateBlockView(String diskMap) {
         char[] diskMapArray = diskMap.toCharArray();
@@ -40,7 +40,11 @@ public class Defragmenter {
     }
 
     public void generateChecksum() {
-        this.checkSum = "";
+
+        for (int diskMapIndex = 0; diskMapIndex < defragmentedDiskMap.size(); diskMapIndex++) {
+            if (!defragmentedDiskMap.get(diskMapIndex).equals("."))
+                setCheckSum(getCheckSum() + Long.parseLong(defragmentedDiskMap.get(diskMapIndex)) * diskMapIndex);
+        }
     }
 
     private void swapPositions(int dotIndex, int i) {

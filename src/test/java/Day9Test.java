@@ -38,6 +38,24 @@ public class Day9Test {
         defragmenter.generateBlockView("12345");
         defragmenter.defrag();
         defragmenter.generateChecksum();
-        assertEquals("[0, 2, 2, 1, 1, 1, 2, 2, 2, ., ., ., ., ., .]", defragmenter.getDefragmentedDiskMap().toString());
+        assertEquals(60L, defragmenter.getCheckSum());
+    }
+
+    @Test
+    public void defragmenterShouldGenerateChecksumFor2333133121414131402() {
+        Defragmenter defragmenter = new Defragmenter();
+        defragmenter.generateBlockView("2333133121414131402");
+        defragmenter.defrag();
+        defragmenter.generateChecksum();
+        assertEquals(1928L, defragmenter.getCheckSum());
+    }
+
+    @Test
+    public void defragmenterShouldGenerateChecksumForPuzzle() {
+        Defragmenter defragmenter = new Defragmenter();
+        defragmenter.generateBlockView("2333133121414131402");
+        defragmenter.defrag();
+        defragmenter.generateChecksum();
+        assertEquals(1928L, defragmenter.getCheckSum());
     }
 }
