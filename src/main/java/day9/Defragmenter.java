@@ -1,6 +1,7 @@
 package day9;
 
 import lombok.Data;
+
 import java.util.ArrayList;
 
 @Data
@@ -42,7 +43,7 @@ public class Defragmenter {
     public void generateChecksum() {
 
         for (int diskMapIndex = 0; diskMapIndex < defragmentedDiskMap.size(); diskMapIndex++) {
-            if (!defragmentedDiskMap.get(diskMapIndex).equals("."))
+            if (isNoDot(diskMapIndex))
                 setCheckSum(getCheckSum() + Long.parseLong(defragmentedDiskMap.get(diskMapIndex)) * diskMapIndex);
         }
     }
@@ -51,7 +52,6 @@ public class Defragmenter {
         defragmentedDiskMap.set(dotIndex, defragmentedDiskMap.get(i));
         defragmentedDiskMap.set(i, ".");
     }
-
 
 
     private boolean isNotFinishedAndInDiskMapSize(int dotIndex, int i) {
