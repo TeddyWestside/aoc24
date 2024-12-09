@@ -14,14 +14,14 @@ public class Day9Test {
     public void defragmenterShouldGenerateBlockView() {
         Defragmenter defragmenter = new Defragmenter();
         defragmenter.generateBlockView("12345");
-        assertEquals("0..111....22222", defragmenter.getBlockView().toString());
+        assertEquals("[0, ., ., 1, 1, 1, ., ., ., ., 2, 2, 2, 2, 2]", defragmenter.getBlockView().toString());
     }
 
     @Test
     public void defragmenterShouldGenerateBlockViewFor2333133121414131402() {
         Defragmenter defragmenter = new Defragmenter();
         defragmenter.generateBlockView("2333133121414131402");
-        assertEquals("00...111...2...333.44.5555.6666.777.888899", defragmenter.getBlockView().toString());
+        assertEquals("[0, 0, ., ., ., 1, 1, 1, ., ., ., 2, ., ., ., 3, 3, 3, ., 4, 4, ., 5, 5, 5, 5, ., 6, 6, 6, 6, ., 7, 7, 7, ., 8, 8, 8, 8, 9, 9]", defragmenter.getBlockView().toString());
     }
 
     @Test
