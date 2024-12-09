@@ -8,6 +8,12 @@ public class Day9Test {
     @Test
     public void defragmenterShouldExist() {
         Defragmenter defragmenter = new Defragmenter();
-        assertEquals("0..111....22222", defragmenter.transferToDotNotation("2333133121414131402"));
+    }
+
+    @Test
+    public void defragmenterShouldGenerateCheckSum() {
+        Defragmenter defragmenter = new Defragmenter();
+        defragmenter.generateChecksum("12345");
+        assertEquals("0..111....22222", defragmenter.getChecksum().toString());
     }
 }
