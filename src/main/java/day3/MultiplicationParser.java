@@ -16,13 +16,20 @@ public class MultiplicationParser {
 
     private int sumMultiplications(String memory) {
         int sum = 0;
-        Pattern pattern = Pattern.compile("mul\\s*\\(\\s*(\\d{1,3})\\s*,\\s*(\\d{1,3})\\s*\\)");
+        boolean activated = true;
+        Pattern pattern = Pattern.compile("mul\\s*\\(\\s*(\\d{1,3})\\s*,\\s*(\\d{1,3})\\s*\\)|do\\(\\)|don't\\(\\)");
         Matcher matcher = pattern.matcher(memory);
 
         while (matcher.find()) {
-            int x = Integer.parseInt(matcher.group(1));
-            int y = Integer.parseInt(matcher.group(2));
-            sum += x * y;
+            if (matcher.group().equals("do()")) {
+                activated = true;
+            } else if (matcher.group().equals("don't()")) {
+                activated = false;
+            } else if (activated) {
+                int x = Integer.parseInt(matcher.group(1));
+                int y = Integer.parseInt(matcher.group(2));
+                sum += x * y;
+            }
         }
 
         return sum;
